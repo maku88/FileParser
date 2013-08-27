@@ -19,37 +19,38 @@ public class App
 
 
     static String[] dirs = {
-            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\ttl\\60000",
-            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\ttl\\60000",
-            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\ttl\\90000",
-            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\ttl\\120000",
-            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\ttl\\180000",
-            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\ttl\\360000",
-            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\25",
-            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\50",
-            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\100",
-            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\125",
-            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\150",
-            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\200",
-            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\225",
-            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\250",
-            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\300"
+//            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\ttl\\60000",
+//            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\ttl\\60000",
+//            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\ttl\\90000",
+//            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\ttl\\120000",
+//            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\ttl\\180000",
+//            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\ttl\\360000",
+//            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\25",
+//            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\50",
+//            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\100",
+//            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\125",
+//            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\150",
+//            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\200",
+//            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\225",
+//            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\250",
+//            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\300"
+            "C:\\Dropbox\\Dropbox\\magisterka\\simulations\\27.08_2\\wykresy\\1000",
+            "C:\\Dropbox\\Dropbox\\magisterka\\simulations\\27.08_2\\wykresy\\1500"
     };
 
-    static final String outputDir = "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\wyniki_csv\\";
+    static final String outputDir = "C:\\Dropbox\\Dropbox\\magisterka\\simulations\\27.08_2\\wyniki_csv\\";
 
     public static void main( String[] args )
     {
-
-
         for(String dir : dirs ) {
 
             String[] dirParts = dir.split(Pattern.quote("\\"));
-            String dirType = dirParts[7];
+//            String dirType = dirParts[7];
 //            String outputFileName = "Wynik_"+dirType+"_"+dirParts[8]+".csv";
             String outputFileName = "Wynik.csv";
 
             ListMultimap<Integer, String> records = ArrayListMultimap.create();
+
             final File folder = new File(dir);
 
             if(folder.isDirectory()) {
@@ -78,9 +79,13 @@ public class App
 
             if(f.getAbsolutePath().contains("size")) key = fileNameParts[5];
             else key = fileNameParts[6];
-            while ((strLine = br.readLine()) != null)   {
+
+            while ((strLine = br.readLine()) != null) {
+//            if(! strLine.startsWith("E:")) {
                 String[] s = strLine.split(";");
+//                System.out.println("->"+key+":"+s[1]);
                 records.put(Integer.parseInt(key),s[1]);
+//            }
             }
             in.close();
             return records;
@@ -111,6 +116,7 @@ public class App
                     if(records.get(key).size() >i ) line+=records.get(key).get(i)+";";
                     else line+=";";
                 }
+                System.out.println(line);
                 writer.println(line);
             }
             writer.flush();
