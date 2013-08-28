@@ -34,11 +34,16 @@ public class App
 //            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\225",
 //            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\250",
 //            "D:\\m\\dropbox\\Dropbox\\magisterka\\simulations\\27.08\\size\\300"
-            "C:\\Dropbox\\Dropbox\\magisterka\\simulations\\27.08_2\\wykresy\\1000",
-            "C:\\Dropbox\\Dropbox\\magisterka\\simulations\\27.08_2\\wykresy\\1500"
+//            "C:\\Dropbox\\Dropbox\\magisterka\\simulations\\27.08_2\\wykresy\\1000",
+//            "C:\\Dropbox\\Dropbox\\magisterka\\simulations\\27.08_2\\wykresy\\1500"
+
+//            "E:\\Dropbox\\magisterka\\simulations\\28.08_NONE\\2\\Wykresy"
+
+//            "E:\\Dropbox\\magisterka\\simulations\\28.08_CFM\\wykresy"
+            "E:\\Dropbox\\magisterka\\simulations\\28.08_LRU\\wykresy"
     };
 
-    static final String outputDir = "C:\\Dropbox\\Dropbox\\magisterka\\simulations\\27.08_2\\wyniki_csv\\";
+    static final String outputDir = "E:\\Dropbox\\magisterka\\simulations\\28.08_LRU\\wykresy";
 
     public static void main( String[] args )
     {

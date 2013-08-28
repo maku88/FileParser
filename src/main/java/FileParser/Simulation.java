@@ -14,6 +14,17 @@ public class Simulation {
 
     private Map<Integer,ReadDuration> readDurationMap = new TreeMap<Integer, ReadDuration>();
     private int simulationID;
+    private int trueCount;
+    private int falseCount;
+
+
+    public void addTrue() {
+        trueCount++;
+    }
+
+    public void addFalse() {
+        falseCount++;
+    }
 
     public Simulation(int simulationID) {
         this.simulationID=simulationID;
@@ -36,5 +47,14 @@ public class Simulation {
         for(Integer i : readDurationMap.keySet()) {
             System.out.println(i + " " + readDurationMap.get(i).getAvgDuration());
         }
+    }
+
+
+    public int getTrueCount() {
+        return trueCount;
+    }
+
+    public int getFalseCount() {
+        return falseCount;
     }
 }
